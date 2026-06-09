@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalog - Heavy Metal UI</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+html,body{
+margin:0;
+padding:0;
+background:#0b0b0b;
+font-family:Inter,system-ui,sans-serif;
+overflow-x:hidden;
+}
+
+#root{
+min-height:100vh;
+width:100%;
+}
+
+.hero-overlay{
+background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.9));
+}
+
+::-webkit-scrollbar{display:none;}
+</style>
+</head>
+
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+
+function App(){
+
+const [filter, setFilter] = React.useState("ALL");
+
+const cards = [
+{ name:"CX-250", type:"MID-RANGE", price:"$450", img:"https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=1200&auto=format&fit=crop" },
+{ name:"ZX-150", type:"COMPACT", price:"$320", img:"https://images.unsplash.com/photo-1599707254554-027aeb4deacd?q=80&w=1200&auto=format&fit=crop" },
+{ name:"MX-400", type:"HEAVY DUTY", price:"$780", img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" },
+{ name:"RX-300", type:"PREMIUM", price:"$620", img:"https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop" },
+];
+
+const types = ["ALL","COMPACT","MID-RANGE","HEAVY DUTY","PREMIUM"];
+
+const filtered = filter === "ALL"
+? cards
+: cards.filter(c => c.type === filter);
+
+return(
+<div className="min-h-screen bg-[#0b0b0b] text-white">
+
+{/* HEADER */}
+<div className="px-5 pt-6 pb-3">
+<h1 className="text-3xl font-black">CATALOG</h1>
+<p className="text-white/50 text-sm mt-1">Browse available heavy machines</p>
+</div>
+
+{/* FILTER BAR */}
+<div className="px-5 flex gap-2 overflow-x-auto pb-4">
+{types.map((t,i)=>(
+<button
+key={i}
+onClick={()=>setFilter(t)}
+className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border
+${filter===t
+? "bg-yellow-400 text-black border-yellow-400"
+: "bg-[#171717] text-white/60 border-white/10"
+}`}
+>
+{t}
+</button>
+))}
+</div>
+
+{/* GRID */}
+<div className="px-5 grid grid-cols-1 md:grid-cols-2 gap-4 pb-28">
+
+{filtered.map((card,i)=>(
+<div
+key={i}
+className="bg-[#171717] rounded-2xl overflow-hidden border border-white/5"
+>
+
+<img src={card.img} className="h-[180px] w-full object-cover"/>
+
+<div className="p-4">
+
+<div className="flex justify-between items-start">
+<div>
+<h3 className="font-bold text-lg">{card.name}</h3>
+<div className="text-white/50 text-xs">{card.type}</div>
+</div>
+
+<div className="text-yellow-400 font-bold">
+{card.price}
+</div>
+</div>
+
+<button className="mt-4 w-full bg-yellow-400 text-black font-bold py-2 rounded-lg text-sm">
+START BOOKING
+</button>
+
+</div>
+</div>
+))}
+
+</div>
+
+{/* FOOTER */}
+<div className="px-5 border-t border-white/10 pt-10 pb-28">
+<h2 className="font-black text-xl">HEAVY METAL</h2>
+<p className="text-white/50 text-sm mt-2">
+Premium excavation equipment rentals for construction projects.
+</p>
+
+<div className="mt-6 text-white/50 text-sm space-y-1">
+<div>support@heavymetal.com</div>
+<div>+234 800 000 0000</div>
+</div>
+
+<div className="text-center text-white/30 text-xs mt-10">
+© 2026 Heavy Metal
+</div>
+</div>
+
+{/* BOTTOM NAV */}
+<div className="fixed bottom-4 left-4 right-4 max-w-[700px] mx-auto h-[78px] rounded-[28px] bg-[#232323] border border-[#353535] flex items-center justify-around">
+
+<div className="flex flex-col items-center">
+<img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" className="w-5 h-5"/>
+<span className="text-[10px] mt-1 text-white/60">HOME</span>
+</div>
+
+<div className="flex flex-col items-center">
+<img src="https://img.icons8.com/ios-filled/50/ffffff/grid.png" className="w-5 h-5"/>
+<span className="text-[10px] mt-1 text-white font-bold">CATALOG</span>
+</div>
+
+<div className="flex flex-col items-center">
+<img src="https://img.icons8.com/ios-filled/50/ffffff/briefcase.png" className="w-5 h-5"/>
+<span className="text-[10px] mt-1 text-white/60">RENTALS</span>
+</div>
+
+<div className="flex flex-col items-center">
+<img src="https://img.icons8.com/ios-filled/50/ffffff/headset.png" className="w-5 h-5"/>
+<span className="text-[10px] mt-1 text-white/60">SUPPORT</span>
+</div>
+
+</div>
+
+</div>
+);
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+</script>
+</body>
+</html>
