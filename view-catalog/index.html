@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Catalog - Heavy Metal UI</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+html,body{
+margin:0;
+padding:0;
+background:#0b0b0b;
+font-family:Inter,system-ui,sans-serif;
+overflow-x:hidden;
+}
+
+#root{
+min-height:100vh;
+width:100%;
+}
+
+::-webkit-scrollbar{display:none;}
+</style>
+</head>
+
+<body>
+<div id="root">Loading...</div>
+
+<script type="text/babel">
+
+function App(){
+
+// GET URL DATA SAFELY
+const params = new URLSearchParams(window.location.search);
+
+const data = {
+name: params.get("name") || "Unknown Machine",
+type: params.get("type") || "N/A",
+price: params.get("price") || "$0",
+img: params.get("img") || "https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=1400&auto=format&fit=crop"
+};
+
+return(
+<div className="min-h-screen bg-[#0b0b0b] text-white pb-28">
+
+{/* HERO IMAGE */}
+<div className="relative h-[420px]">
+
+<img
+src={data.img}
+className="absolute inset-0 w-full h-full object-cover"
+/>
+
+<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+
+{/* BACK BUTTON */}
+<div className="absolute top-5 left-5">
+<button
+onClick={() => window.history.back()}
+className="bg-black/60 px-4 py-2 rounded-lg text-sm"
+>
+← Back
+</button>
+</div>
+
+{/* INFO */}
+<div className="absolute bottom-6 left-5 right-5">
+
+<h1 className="text-4xl md:text-6xl font-black">
+{data.name}
+</h1>
+
+<p className="text-white/70 mt-1">
+{data.type}
+</p>
+
+<div className="text-yellow-400 text-2xl font-bold mt-3">
+{data.price}
+</div>
+
+</div>
+</div>
+
+{/* DETAILS SECTION */}
+<div className="px-5 mt-6 space-y-4">
+
+<div className="bg-[#171717] p-4 rounded-xl border border-white/5">
+<h2 className="font-bold mb-2">Machine Overview</h2>
+<p className="text-white/60 text-sm">
+This equipment is available for rental. Perfect for construction, excavation, and heavy-duty projects.
+</p>
+</div>
+
+<div className="grid grid-cols-2 gap-3">
+
+<div className="bg-[#171717] p-4 rounded-xl border border-white/5">
+<div className="text-white/50 text-xs">Type</div>
+<div className="font-bold">{data.type}</div>
+</div>
+
+<div className="bg-[#171717] p-4 rounded-xl border border-white/5">
+<div className="text-white/50 text-xs">Price</div>
+<div className="font-bold text-yellow-400">{data.price}</div>
+</div>
+
+</div>
+
+{/* BOOK BUTTON */}
+<button className="w-full mt-4 bg-yellow-400 text-black font-bold py-3 rounded-xl">
+START BOOKING
+</button>
+
+</div>
+
+{/* BOTTOM NAV */}
+<div className="fixed bottom-4 left-4 right-4 max-w-[700px] mx-auto h-[78px] rounded-[28px] bg-[#232323] border border-[#353535] flex items-center justify-around">
+
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/"}>
+<img src="https://www.svgrepo.com/show/529021/home-angle.svg" className="w-5 h-5 invert brightness-0"/>
+<span className="text-[10px] mt-1 text-white/60">HOME</span>
+</div>
+
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/catalog"}>
+<img src="https://www.svgrepo.com/show/506211/grid-4.svg" className="w-5 h-5 invert brightness-0"/>
+<span className="text-[10px] mt-1 text-white/60">CATALOG</span>
+</div>
+
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/rental"}>
+<img src="https://www.svgrepo.com/show/507547/briefcase-alt.svg" className="w-5 h-5 invert brightness-0"/>
+<span className="text-[10px] mt-1 text-white/60">RENTALS</span>
+</div>
+
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/support"}>
+<img src="https://www.svgrepo.com/show/471510/help-circle.svg" className="w-5 h-5 invert brightness-0"/>
+<span className="text-[10px] mt-1 text-white/60">SUPPORT</span>
+</div>
+
+</div>
+
+</div>
+);
+}
+
+// SAFE MOUNT
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+
+</script>
+</body>
+</html>
