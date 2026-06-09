@@ -209,26 +209,30 @@ support@heavymetal.com<br/>
 {/* BOTTOM NAV */}
 <div className="fixed bottom-4 left-4 right-4 max-w-[700px] mx-auto h-[78px] rounded-[28px] bg-[#232323] border border-[#353535] flex items-center justify-around">
 
-<div className="flex flex-col items-center">
-<img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" className="w-5 h-5"/>
+{/* HOME */}
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/"}>
+<img src="https://www.svgrepo.com/show/529021/home-angle.svg" className="w-5 h-5 invert brightness-0"/>
 <span className="text-[10px] mt-1 text-white/60">HOME</span>
 </div>
 
-<div className="flex flex-col items-center">
-<img src="https://img.icons8.com/ios-filled/50/ffffff/grid.png" className="w-5 h-5"/>
+{/* CATALOG */}
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/catalog"}>
+<img src="https://www.svgrepo.com/show/506211/grid-4.svg" className="w-5 h-5 invert brightness-0"/>
 <span className="text-[10px] mt-1 text-white/60">CATALOG</span>
 </div>
 
-<div className="flex flex-col items-center">
-<img src="https://img.icons8.com/ios-filled/50/ffffff/briefcase.png" className="w-5 h-5"/>
+{/* RENTALS (ACTIVE) */}
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/rentals"}>
+<img src="https://www.svgrepo.com/show/507547/briefcase-alt.svg" className="w-5 h-5 invert brightness-0"/>
 <span className="text-[10px] mt-1 text-white font-bold">RENTALS</span>
 </div>
 
-<div className="flex flex-col items-center">
-<img src="https://img.icons8.com/ios-filled/50/ffffff/headset.png" className="w-5 h-5"/>
+{/* SUPPORT */}
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/support"}>
+<img src="https://www.svgrepo.com/show/471510/help-circle.svg" className="w-5 h-5 invert brightness-0"/>
 <span className="text-[10px] mt-1 text-white/60">SUPPORT</span>
 </div>
-
+  
 </div>
 
 </div>
