@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Heavy Metal UI</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+html,body{
+margin:0;
+padding:0;
+background:#0b0b0b;
+font-family:Inter,system-ui,sans-serif;
+overflow-x:hidden;
+}
+
+#root{
+min-height:100vh;
+width:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+::-webkit-scrollbar{display:none;}
+</style>
+</head>
+
+<body>
+<div id="root">Loading...</div>
+
+<script type="text/babel">
+
+function App(){
+
+return(
+<div className="min-h-screen bg-[#0b0b0b] text-white flex items-center justify-center px-6">
+
+<div className="text-center max-w-md">
+
+{/* BIG ERROR TEXT */}
+<h1 className="text-[90px] font-black leading-none text-yellow-400">
+404
+</h1>
+
+<h2 className="text-2xl font-bold mt-4">
+PAGE NOT FOUND
+</h2>
+
+<p className="text-white/60 mt-3 text-sm">
+The page you are looking for does not exist or has been moved.
+</p>
+
+{/* ACTION BUTTONS */}
+<div className="mt-6 space-y-3">
+
+<button
+onClick={() => window.location.href = "/"}
+className="w-full bg-yellow-400 text-black font-bold py-3 rounded-xl"
+>
+GO HOME
+</button>
+
+<button
+onClick={() => window.location.href = "/catalog"}
+className="w-full bg-[#171717] border border-white/10 text-white font-bold py-3 rounded-xl"
+>
+GO TO CATALOG
+</button>
+
+</div>
+
+{/* DECOR LINE */}
+<div className="mt-10 text-white/20 text-xs">
+Heavy Metal Systems • Error Route Detected
+</div>
+
+</div>
+
+</div>
+);
+}
+
+// SAFE MOUNT
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
+
+</script>
+</body>
+</html>
