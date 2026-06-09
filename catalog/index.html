@@ -134,22 +134,26 @@ Premium excavation equipment rentals for construction projects.
 {/* BOTTOM NAV */}
 <div className="fixed bottom-4 left-4 right-4 max-w-[700px] mx-auto h-[78px] rounded-[28px] bg-[#232323] border border-[#353535] flex items-center justify-around">
 
-<div className="flex flex-col items-center">
+{/* HOME */}
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/"}>
 <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" className="w-5 h-5"/>
 <span className="text-[10px] mt-1 text-white/60">HOME</span>
 </div>
 
-<div className="flex flex-col items-center">
+{/* CATALOG (ACTIVE) */}
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/catalog"}>
 <img src="https://img.icons8.com/ios-filled/50/ffffff/grid.png" className="w-5 h-5"/>
 <span className="text-[10px] mt-1 text-white font-bold">CATALOG</span>
 </div>
 
-<div className="flex flex-col items-center">
+{/* RENTALS */}
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/rentals"}>
 <img src="https://img.icons8.com/ios-filled/50/ffffff/briefcase.png" className="w-5 h-5"/>
 <span className="text-[10px] mt-1 text-white/60">RENTALS</span>
 </div>
 
-<div className="flex flex-col items-center">
+{/* SUPPORT */}
+<div className="flex flex-col items-center cursor-pointer" onClick={() => window.location.href = "/support"}>
 <img src="https://img.icons8.com/ios-filled/50/ffffff/headset.png" className="w-5 h-5"/>
 <span className="text-[10px] mt-1 text-white/60">SUPPORT</span>
 </div>
