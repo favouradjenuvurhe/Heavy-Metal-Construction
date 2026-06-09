@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rentals - Heavy Metal UI</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+html,body{
+margin:0;
+padding:0;
+background:#0b0b0b;
+font-family:Inter,system-ui,sans-serif;
+overflow-x:hidden;
+}
+
+#root{
+min-height:100vh;
+width:100%;
+}
+
+::-webkit-scrollbar{display:none;}
+
+.glass{
+background:#171717;
+border:1px solid rgba(255,255,255,0.06);
+}
+</style>
+</head>
+
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+
+function App(){
+
+const [form, setForm] = React.useState({
+name:"",
+tool:"",
+type:"",
+duration:"",
+location:"",
+message:""
+});
+
+const [status, setStatus] = React.useState("");
+
+const handleChange = (e) => {
+setForm({...form, [e.target.name]: e.target.value});
+};
+
+const handleSubmit = (e) => {
+e.preventDefault();
+
+setStatus("sending...");
+
+setTimeout(()=>{
+setStatus("success");
+setForm({
+name:"",
+tool:"",
+type:"",
+duration:"",
+location:"",
+message:""
+});
+}, 1500);
+};
+
+return(
+<div className="min-h-screen bg-[#0b0b0b] text-white">
+
+{/* HEADER */}
+<div className="px-5 pt-8 pb-6">
+<h1 className="text-3xl font-black">RENTALS</h1>
+<p className="text-white/50 text-sm mt-1">
+Fill in details to request equipment rental
+</p>
+</div>
+
+{/* FORM */}
+<div className="px-5 pb-28">
+
+<form onSubmit={handleSubmit} className="space-y-4">
+
+{/* NAME */}
+<div>
+<label className="text-xs text-white/50">Full Name</label>
+<input
+name="name"
+value={form.name}
+onChange={handleChange}
+placeholder="Enter your name"
+className="w-full mt-1 p-3 rounded-xl bg-[#171717] border border-white/10 outline-none"
+/>
+</div>
+
+{/* TOOL */}
+<div>
+<label className="text-xs text-white/50">Tool / Machine Name</label>
+<input
+name="tool"
+value={form.tool}
+onChange={handleChange}
+placeholder="e.g. CX-250 Excavator"
+className="w-full mt-1 p-3 rounded-xl bg-[#171717] border border-white/10 outline-none"
+/>
+</div>
+
+{/* TYPE */}
+<div>
+<label className="text-xs text-white/50">Category</label>
+<select
+name="type"
+value={form.type}
+onChange={handleChange}
+className="w-full mt-1 p-3 rounded-xl bg-[#171717] border border-white/10 outline-none"
+>
+<option value="">Select type</option>
+<option>COMPACT</option>
+<option>MID-RANGE</option>
+<option>HEAVY DUTY</option>
+<option>PREMIUM</option>
+</select>
+</div>
+
+{/* DURATION */}
+<div>
+<label className="text-xs text-white/50">Duration</label>
+<input
+name="duration"
+value={form.duration}
+onChange={handleChange}
+placeholder="e.g. 5 days / 2 weeks"
+className="w-full mt-1 p-3 rounded-xl bg-[#171717] border border-white/10 outline-none"
+/>
+</div>
+
+{/* LOCATION */}
+<div>
+<label className="text-xs text-white/50">Project Location</label>
+<input
+name="location"
+value={form.location}
+onChange={handleChange}
+placeholder="Where do you need it?"
+className="w-full mt-1 p-3 rounded-xl bg-[#171717] border border-white/10 outline-none"
+/>
+</div>
+
+{/* MESSAGE */}
+<div>
+<label className="text-xs text-white/50">Extra Details</label>
+textarea
+name="message"
+value={form.message}
+onChange={handleChange}
+placeholder="Add extra instructions..."
+className="w-full mt-1 p-3 rounded-xl bg-[#171717] border border-white/10 outline-none h-[100px]"
+/>
+</div>
+
+{/* BUTTON */}
+<button
+type="submit"
+className="w-full mt-4 bg-yellow-400 text-black font-bold py-3 rounded-xl"
+>
+SUBMIT RENTAL REQUEST
+</button>
+
+</form>
+
+{/* STATUS */}
+{status === "sending..." && (
+<div className="mt-4 text-yellow-400 text-sm">Sending request...</div>
+)}
+
+{status === "success" && (
+<div className="mt-4 text-green-400 text-sm">
+Request submitted successfully ✔ We will contact you soon.
+</div>
+)}
+
+</div>
+
+{/* FOOTER */}
+<div className="px-5 border-t border-white/10 pt-8 pb-28">
+<h2 className="font-black text-xl">HEAVY METAL</h2>
+<p className="text-white/50 text-sm mt-2">
+Fast rental service for construction equipment.
+</p>
+
+<div className="mt-6 text-white/50 text-sm">
+support@heavymetal.com<br/>
++234 800 000 0000
+</div>
+
+<div className="text-center text-white/30 text-xs mt-10">
+© 2026 Heavy Metal
+</div>
+</div>
+
+{/* BOTTOM NAV */}
+<div className="fixed bottom-4 left-4 right-4 max-w-[700px] mx-auto h-[78px] rounded-[28px] bg-[#232323] border border-[#353535] flex items-center justify-around">
+
+<div className="flex flex-col items-center">
+<img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" className="w-5 h-5"/>
+<span className="text-[10px] mt-1 text-white/60">HOME</span>
+</div>
+
+<div className="flex flex-col items-center">
+<img src="https://img.icons8.com/ios-filled/50/ffffff/grid.png" className="w-5 h-5"/>
+<span className="text-[10px] mt-1 text-white/60">CATALOG</span>
+</div>
+
+<div className="flex flex-col items-center">
+<img src="https://img.icons8.com/ios-filled/50/ffffff/briefcase.png" className="w-5 h-5"/>
+<span className="text-[10px] mt-1 text-white font-bold">RENTALS</span>
+</div>
+
+<div className="flex flex-col items-center">
+<img src="https://img.icons8.com/ios-filled/50/ffffff/headset.png" className="w-5 h-5"/>
+<span className="text-[10px] mt-1 text-white/60">SUPPORT</span>
+</div>
+
+</div>
+
+</div>
+);
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+</script>
+</body>
+</html>
