@@ -38,13 +38,65 @@ function App(){
 const [filter, setFilter] = React.useState("ALL");
 
 const cards = [
-{ name:"CX-250", type:"MID-RANGE", price:"$450", img:"https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=1200&auto=format&fit=crop" },
-{ name:"ZX-150", type:"COMPACT", price:"$320", img:"https://images.unsplash.com/photo-1599707254554-027aeb4deacd?q=80&w=1200&auto=format&fit=crop" },
-{ name:"MX-400", type:"HEAVY DUTY", price:"$780", img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" },
-{ name:"RX-300", type:"PREMIUM", price:"$620", img:"https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop" },
+  { name:"CX-250 Excavator", type:"HEAVY DUTY", price:"$450/day", img:"https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=1200&auto=format&fit=crop" },
+  { name:"ZX-150 Mini Excavator", type:"COMPACT", price:"$320/day", img:"https://images.unsplash.com/photo-1599707254554-027aeb4deacd?q=80&w=1200&auto=format&fit=crop" },
+  { name:"MX-400 Bulldozer", type:"HEAVY DUTY", price:"$780/day", img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" },
+  { name:"RX-300 Loader", type:"PREMIUM", price:"$620/day", img:"https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop" },
+
+  { name:"Tower Crane TC-900", type:"HEAVY DUTY", price:"$1200/day", img:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Concrete Mixer CM-120", type:"STANDARD", price:"$150/day", img:"https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Road Roller RR-500", type:"HEAVY DUTY", price:"$700/day", img:"https://images.unsplash.com/photo-1621905251189-08b45d6a0f60?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Forklift FL-2500", type:"INDUSTRIAL", price:"$400/day", img:"https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop" },
+
+  { name:"Backhoe Loader BL-200", type:"MULTI-USE", price:"$500/day", img:"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Dump Truck DT-800", type:"HEAVY DUTY", price:"$650/day", img:"https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Skid Steer SS-100", type:"COMPACT", price:"$350/day", img:"https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Concrete Pump CP-700", type:"HEAVY DUTY", price:"$900/day", img:"https://images.unsplash.com/photo-1605559424843-9e0c7c6e0f36?q=80&w=1200&auto=format&fit=crop" },
+
+  { name:"Jackhammer JH-90", type:"HAND TOOL", price:"$80/day", img:"https://images.unsplash.com/photo-1621905252507-17b7c3b9a1e2?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Scaffolding Set SC-300", type:"STRUCTURE", price:"$200/day", img:"https://images.unsplash.com/photo-1600585152915-d208bec867a1?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Wheel Loader WL-450", type:"HEAVY DUTY", price:"$750/day", img:"https://images.unsplash.com/photo-1600585154205-6b7d3a6d7b9a?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Asphalt Paver AP-600", type:"ROAD WORK", price:"$1100/day", img:"https://images.unsplash.com/photo-1621905252487-2c7b6d2a6f8e?q=80&w=1200&auto=format&fit=crop" },
+
+  { name:"Trencher TR-200", type:"TRENCHING", price:"$300/day", img:"https://images.unsplash.com/photo-1581092334651-ddf26d9a09d8?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Air Compressor AC-150", type:"UTILITY", price:"$120/day", img:"https://images.unsplash.com/photo-1581092787765-e3f1a1c9d9d1?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Concrete Vibrator CV-50", type:"FINISHING", price:"$60/day", img:"https://images.unsplash.com/photo-1590642916810-3b5f8b8b8f4a?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Mobile Crane MC-500", type:"HEAVY LIFT", price:"$1300/day", img:"https://images.unsplash.com/photo-1600585153490-76fb20a32601?q=80&w=1200&auto=format&fit=crop" },
+
+  { name:"Compactor CP-220", type:"COMPACTION", price:"$280/day", img:"https://images.unsplash.com/photo-1600585154352-0b2f8f9d9b2a?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Concrete Cutter CC-100", type:"CUTTING", price:"$110/day", img:"https://images.unsplash.com/photo-1600585152220-0a3d8c1b1c2d?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Pile Driver PD-800", type:"FOUNDATION", price:"$1500/day", img:"https://images.unsplash.com/photo-1600585153333-2a3b4c5d6e7f?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Surveying Total Station ST-90", type:"SURVEYING", price:"$200/day", img:"https://images.unsplash.com/photo-1581093588401-12d5b6c8f7a3?q=80&w=1200&auto=format&fit=crop" },
+
+  { name:"Rebar Bender RB-70", type:"STEEL WORK", price:"$90/day", img:"https://images.unsplash.com/photo-1581092795360-1c4f5d6e7a8b?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Portable Generator PG-500", type:"POWER", price:"$180/day", img:"https://images.unsplash.com/photo-1600585154150-3a7b8c9d0e1f?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Drilling Rig DR-1000", type:"HEAVY DUTY", price:"$2000/day", img:"https://images.unsplash.com/photo-1581092334975-6c7d8e9f0a1b?q=80&w=1200&auto=format&fit=crop" },
+  { name:"Water Pump WP-60", type:"UTILITY", price:"$70/day", img:"https://images.unsplash.com/photo-1581092334000-1a2b3c4d5e6f?q=80&w=1200&auto=format&fit=crop" }
 ];
 
-const types = ["ALL","COMPACT","MID-RANGE","HEAVY DUTY","PREMIUM"];
+const types = [
+  "ALL",
+  "COMPACT",
+  "MID-RANGE",
+  "HEAVY DUTY",
+  "PREMIUM",
+  "STANDARD",
+  "INDUSTRIAL",
+  "MULTI-USE",
+  "HAND TOOL",
+  "STRUCTURE",
+  "ROAD WORK",
+  "TRENCHING",
+  "UTILITY",
+  "FINISHING",
+  "HEAVY LIFT",
+  "COMPACTION",
+  "CUTTING",
+  "FOUNDATION",
+  "SURVEYING",
+  "STEEL WORK",
+  "POWER"
+];
 
 const filtered = filter === "ALL"
 ? cards
