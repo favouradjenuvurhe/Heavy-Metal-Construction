@@ -38,34 +38,34 @@ function App(){
 const [filter, setFilter] = React.useState("ALL");
 
 const cards = [
-  { name:"CX-250 Excavator", type:"HEAVY DUTY", price:"$450/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
-  { name:"ZX-150 Mini Excavator", type:"COMPACT", price:"$320/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" },
-  { name:"MX-400 Bulldozer", type:"HEAVY DUTY", price:"$780/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MmUae3yK3USQCzLLnDkot6NKbc8cEtZisoVm7FZaxLiSsMxa2beRPKw&s=10" },
-  { name:"RX-300 Loader", type:"PREMIUM", price:"$620/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJuZ5VDxT4CsMw-lyPiHikoBcSK32M9jXC0Bdi8njsRQ&s=10" },
+  { name:"CX-250 Excavator", type:"HEAVY DUTY", price:"$45,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
+  { name:"ZX-150 Mini Excavator", type:"COMPACT", price:"$32,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" },
+  { name:"MX-400 Bulldozer", type:"HEAVY DUTY", price:"$78,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MmUae3yK3USQCzLLnDkot6NKbc8cEtZisoVm7FZaxLiSsMxa2beRPKw&s=10" },
+  { name:"RX-300 Loader", type:"PREMIUM", price:"$62,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJuZ5VDxT4CsMw-lyPiHikoBcSK32M9jXC0Bdi8njsRQ&s=10" },
 
-  { name:"Tower Crane TC-900", type:"HEAVY DUTY", price:"$1200/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1p_s_I8MKNeDJXoSC_diQkxNdpCwn6ZafstOzUln3b6UU0K1UrTgV-UiS&s=10" },
-  { name:"Concrete Mixer CM-120", type:"STANDARD", price:"$150/day", img:"https://image.made-in-china.com/318f0j00tabGgMNETLzD/4-26-1-mp4.webp" },
-  { name:"Road Roller RR-500", type:"HEAVY DUTY", price:"$700/day", img:"https://image.made-in-china.com/2f0j00gbYolEQcVHrK/Baby-Road-Roller-500kg-600kg-700kg-800kg-Double-Drumroller.jpg" },
-  { name:"Forklift FL-2500", type:"INDUSTRIAL", price:"$400/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsQ1OdYN9cwZjMbH7FWJCjin7z7RAZstVj-CeRa5jqJw&s=10" },
+  { name:"Tower Crane TC-900", type:"HEAVY DUTY", price:"$12,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1p_s_I8MKNeDJXoSC_diQkxNdpCwn6ZafstOzUln3b6UU0K1UrTgV-UiS&s=10" },
+  { name:"Concrete Mixer CM-120", type:"STANDARD", price:"$15,000", img:"https://image.made-in-china.com/318f0j00tabGgMNETLzD/4-26-1-mp4.webp" },
+  { name:"Road Roller RR-500", type:"HEAVY DUTY", price:"$70,000", img:"https://image.made-in-china.com/2f0j00gbYolEQcVHrK/Baby-Road-Roller-500kg-600kg-700kg-800kg-Double-Drumroller.jpg" },
+  { name:"Forklift FL-2500", type:"INDUSTRIAL", price:"$40,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsQ1OdYN9cwZjMbH7FWJCjin7z7RAZstVj-CeRa5jqJw&s=10" },
 
-  { name:"Backhoe Loader BL-200", type:"MULTI-USE", price:"$500/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe7bCCrey2A3Tt8I_G1Ga_8-ziJ5Qvlu8y7pNzG_WAo6OgzL27pCGYZxo&s=10" },
-  { name:"Dump Truck DT-800", type:"HEAVY DUTY", price:"$650/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2AcQc2yVgbzDcUh8HEtMG9v1jwHwUMpVlH1Mu9Kp8DUf21vfqZS87UvA&s=10" },
-  { name:"Skid Steer SS-100", type:"COMPACT", price:"$350/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSqVucI7_yIzCJlRD8Gj94rxLmtIfRIGJwIZvBqOsHnon_UJjPGysm3wcr&s=10" },
-  { name:"Concrete Pump CP-700", type:"HEAVY DUTY", price:"$900/day", img:"https://www.cable-pullingtools.com/photo/cable-pullingtools/video/20241129_67495bec6f2d9.mp4.jpg?1732861397" },
+  { name:"Backhoe Loader BL-200", type:"MULTI-USE", price:"$50,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe7bCCrey2A3Tt8I_G1Ga_8-ziJ5Qvlu8y7pNzG_WAo6OgzL27pCGYZxo&s=10" },
+  { name:"Dump Truck DT-800", type:"HEAVY DUTY", price:"$65,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2AcQc2yVgbzDcUh8HEtMG9v1jwHwUMpVlH1Mu9Kp8DUf21vfqZS87UvA&s=10" },
+  { name:"Skid Steer SS-100", type:"COMPACT", price:"$35,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSqVucI7_yIzCJlRD8Gj94rxLmtIfRIGJwIZvBqOsHnon_UJjPGysm3wcr&s=10" },
+  { name:"Concrete Pump CP-700", type:"HEAVY DUTY", price:"$90,000", img:"https://www.cable-pullingtools.com/photo/cable-pullingtools/video/20241129_67495bec6f2d9.mp4.jpg?1732861397" },
 
-  { name:"Jackhammer JH-90", type:"HAND TOOL", price:"$80/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMeWAhEgBjwH64dR7Qus5FNjtqvYMmDlNNNUI_yW4jXQ&s=10" },
-  { name:"Scaffolding Set SC-300", type:"STRUCTURE", price:"$200/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGli9e1t2hj816Xs9LNgMyGbTLAiuTeBwfG6QCJQdzJGkIi1J_kCVhL_KL&s=10" },
-  { name:"Wheel Loader WL-450", type:"HEAVY DUTY", price:"$750/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReWNA_2dEWbTc-Vk5EHSEpeXGImnduhgetDr4XsPlz7yhTW3RgeYNZf-U&s=10" },
-  { name:"Asphalt Paver AP-600", type:"ROAD WORK", price:"$1100/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7mhZwrRXdeHQHBPiJvc__1lTs346l1poPPzQDRjnmPrncStlgbX30Lek&s=10" },
+  { name:"Jackhammer JH-90", type:"HAND TOOL", price:"$8,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMeWAhEgBjwH64dR7Qus5FNjtqvYMmDlNNNUI_yW4jXQ&s=10" },
+  { name:"Scaffolding Set SC-300", type:"STRUCTURE", price:"$20,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGli9e1t2hj816Xs9LNgMyGbTLAiuTeBwfG6QCJQdzJGkIi1J_kCVhL_KL&s=10" },
+  { name:"Wheel Loader WL-450", type:"HEAVY DUTY", price:"$75,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReWNA_2dEWbTc-Vk5EHSEpeXGImnduhgetDr4XsPlz7yhTW3RgeYNZf-U&s=10" },
+  { name:"Asphalt Paver AP-600", type:"ROAD WORK", price:"$11,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7mhZwrRXdeHQHBPiJvc__1lTs346l1poPPzQDRjnmPrncStlgbX30Lek&s=10" },
 
-  { name:"Trencher TR-200", type:"TRENCHING", price:"$300/day", img:"https://img.directindustry.com/images_di/photo-g/22663-11993338.jpg" },
-  { name:"Air Compressor AC-150", type:"UTILITY", price:"$120/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8EgjFtuoDPp71PAJhe2mHR-M9cgWP2BAlxVieWnq9RTt4iibLhnhk0Hk&s=10" },
-  { name:"Concrete Vibrator CV-50", type:"FINISHING", price:"$60/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6PXtygq1vP3GChk63vMicieQXPMx_EQrtrckaxGLt7g&s" },
-  { name:"Mobile Crane MC-500", type:"HEAVY LIFT", price:"$1300/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWUXdoxgpdvTzZ7FpT8xSRBYRYM5lfOX-vIVKtGQpMKg&s=10" },
+  { name:"Trencher TR-200", type:"TRENCHING", price:"$30,000", img:"https://img.directindustry.com/images_di/photo-g/22663-11993338.jpg" },
+  { name:"Air Compressor AC-150", type:"UTILITY", price:"$12,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8EgjFtuoDPp71PAJhe2mHR-M9cgWP2BAlxVieWnq9RTt4iibLhnhk0Hk&s=10" },
+  { name:"Concrete Vibrator CV-50", type:"FINISHING", price:"$60,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6PXtygq1vP3GChk63vMicieQXPMx_EQrtrckaxGLt7g&s" },
+  { name:"Mobile Crane MC-500", type:"HEAVY LIFT", price:"$13,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWUXdoxgpdvTzZ7FpT8xSRBYRYM5lfOX-vIVKtGQpMKg&s=10" },
 
-  { name:"Compactor CP-220", type:"COMPACTION", price:"$280/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSckv51p_HYoxwmh-Zka59AdhdRtVPuCEPvT4kdCkA5S3v7pA3V36keA0&s=10" },
-  { name:"Pile Driver PD-800", type:"FOUNDATION", price:"$1500/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr0lZMZmxqadbfLBEpj6K99ABjXKvU_5twEopppsbPYyASiy0hQMa1On9n&s=10" },
-  { name:"Surveying Total Station ST-90", type:"SURVEYING", price:"$200/day", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmha_VJ7gPrGb575WvlbYH85TIKjJvCThOfdcEBXfvXWn4qt9It69y3Z4&s=10" }
+  { name:"Compactor CP-220", type:"COMPACTION", price:"$28,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSckv51p_HYoxwmh-Zka59AdhdRtVPuCEPvT4kdCkA5S3v7pA3V36keA0&s=10" },
+  { name:"Pile Driver PD-800", type:"FOUNDATION", price:"$15,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr0lZMZmxqadbfLBEpj6K99ABjXKvU_5twEopppsbPYyASiy0hQMa1On9n&s=10" },
+  { name:"Surveying Total Station ST-90", type:"SURVEYING", price:"$20,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmha_VJ7gPrGb575WvlbYH85TIKjJvCThOfdcEBXfvXWn4qt9It69y3Z4&s=10" }
 ];
 
 const types = [
@@ -221,4 +221,16 @@ root.render(<App />);
 
 </script>
 </body>
+  <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'b1a598f047e3452dd7e90c9c56e6dad10cd01120';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
 </html>
