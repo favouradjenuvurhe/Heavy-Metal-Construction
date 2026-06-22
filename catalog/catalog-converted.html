@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalog</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+html,body{margin:0;padding:0;background:#0b0b0b;font-family:Inter,system-ui,sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{display:none;}
+</style>
+</head>
+<body>
+<div id="app" class="min-h-screen bg-[#0b0b0b] text-white"></div>
+
+<script>
+const cards = [
+  { name:"CX-250 Excavator", type:"HEAVY DUTY", price:"$45,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
+  { name:"ZX-150 Mini Excavator", type:"COMPACT", price:"$32,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" },
+  { name:"MX-400 Bulldozer", type:"HEAVY DUTY", price:"$78,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MmUae3yK3USQCzLLnDkot6NKbc8cEtZisoVm7FZaxLiSsMxa2beRPKw&s=10" },
+  { name:"RX-300 Loader", type:"PREMIUM", price:"$62,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJuZ5VDxT4CsMw-lyPiHikoBcSK32M9jXC0Bdi8njsRQ&s=10" }
+];
+
+const types=["ALL","COMPACT","HEAVY DUTY","PREMIUM"];
+let filter="ALL";
+
+function render(){
+const filtered = filter==="ALL" ? cards : cards.filter(c=>c.type===filter);
+
+document.getElementById('app').innerHTML=`
+<div class="px-5 pt-6 pb-3">
+<h1 class="text-3xl font-black">CATALOG</h1>
+<p class="text-white/50 text-sm mt-1">Browse available heavy machines</p>
+</div>
+
+<div id="filters" class="px-5 flex gap-2 overflow-x-auto pb-4"></div>
+
+<div class="px-5 grid grid-cols-1 md:grid-cols-2 gap-4 pb-28">
+${filtered.map(card=>`
+<div class="bg-[#171717] rounded-2xl overflow-hidden border border-white/5">
+<img src="${card.img}" class="h-[180px] w-full object-cover">
+<div class="p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-lg">${card.name}</h3>
+<div class="text-white/50 text-xs">${card.type}</div>
+</div>
+<div class="text-yellow-400 font-bold">${card.price}</div>
+</div>
+<button onclick='goToBooking(${JSON.stringify(card)})'
+class="mt-4 w-full bg-yellow-400 text-black font-bold py-2 rounded-lg text-sm">
+MAKE PURCHASE
+</button>
+</div></div>`).join('')}
+</div>`;
+
+document.getElementById('filters').innerHTML = types.map(t=>`
+<button onclick="setFilter('${t}')"
+class="px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border ${filter===t?'bg-yellow-400 text-black border-yellow-400':'bg-[#171717] text-white/60 border-white/10'}">${t}</button>
+`).join('');
+}
+
+function setFilter(t){ filter=t; render(); }
+
+function goToBooking(card){
+const query = new URLSearchParams(card).toString();
+window.location.href="/view-catalog?"+query;
+}
+
+render();
+</script>
+
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'b1a598f047e3452dd7e90c9c56e6dad10cd01120';
+</script>
+</body>
+</html>
