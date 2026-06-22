@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rentals - Heavy Metal UI</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+html,body{
+margin:0;
+padding:0;
+background:#0b0b0b;
+font-family:Inter,system-ui,sans-serif;
+overflow-x:hidden;
+}
+::-webkit-scrollbar{display:none;}
+.glass{
+background:#171717;
+border:1px solid rgba(255,255,255,0.06);
+}
+</style>
+</head>
+<body>
+
+<div class="min-h-screen bg-[#0b0b0b] text-white">
+
+<div class="px-5 pt-8 pb-6">
+<h1 class="text-3xl font-black">RENTALS</h1>
+<p class="text-white/50 text-sm mt-1">Fill in details to request equipment rental</p>
+</div>
+
+<div class="px-5 pb-28">
+
+<form id="rentalForm" class="space-y-4">
+
+<div>
+<label class="text-xs text-white/50">Full Name</label>
+<input name="name" placeholder="Enter your name"
+class="w-full mt-1 p-3 rounded-xl bg-[#171717] border border-white/10 outline-none"/>
+</div>
+
+<div>
+<label class="text-xs text-white/50">Tool / Machine Name</label>
+<input name="tool" placeholder="e.g. CX-250 Excavator"
+class="w-full mt-1 p-3 rounded-xl bg-[#171717] border border-white/10 outline-none"/>
+</div>
+
+<div>
+<label class="text-xs text-white/50">Category</label>
+<select name="type"
+class="w-full mt-1 p-3 rounded-xl bg-[#171717] border border-white/10 outline-none">
+<option value="">Select type</option>
+<option>COMPACT</option>
+<option>MID-RANGE</option>
+<option>HEAVY DUTY</option>
+<option>PREMIUM</option>
+</select>
+</div>
+
+<div>
+<label class="text-xs text-white/50">Duration</label>
+<input name="duration" placeholder="e.g. 5 days / 2 weeks"
+class="w-full mt-1 p-3 rounded-xl bg-[#171717] border border-white/10 outline-none"/>
+</div>
+
+<div>
+<label class="text-xs text-white/50">Project Location</label>
+<input name="location" placeholder="Where do you need it?"
+class="w-full mt-1 p-3 rounded-xl bg-[#171717] border border-white/10 outline-none"/>
+</div>
+
+<button type="submit"
+class="w-full mt-4 bg-yellow-400 text-black font-bold py-3 rounded-xl">
+SUBMIT RENTAL REQUEST
+</button>
+
+</form>
+
+<div id="status"></div>
+
+</div>
+
+<div class="px-5 border-t border-white/10 pt-8 pb-28">
+<h2 class="font-black text-xl">Pipeline Construction Tool</h2>
+<p class="text-white/50 text-sm mt-2">
+Premium excavation equipment rentals for construction and industrial projects.
+</p>
+<div class="mt-6 text-white/50 text-sm">
+help@pipelineconstructiontool.site
+</div>
+<div class="text-center text-white/30 text-xs mt-10">
+© 2026 Pipeline Construction Tool
+</div>
+</div>
+
+<div class="fixed bottom-4 left-4 right-4 max-w-[700px] mx-auto h-[78px] rounded-[28px] bg-[#232323] border border-[#353535] flex items-center justify-around">
+
+<div class="flex flex-col items-center cursor-pointer" onclick="window.location.href='/'">
+<img src="https://www.svgrepo.com/show/529021/home-angle.svg" class="w-5 h-5 invert brightness-0"/>
+<span class="text-[10px] mt-1 text-white/60">HOME</span>
+</div>
+
+<div class="flex flex-col items-center cursor-pointer" onclick="window.location.href='/catalog'">
+<img src="https://www.svgrepo.com/show/506211/grid-4.svg" class="w-5 h-5 invert brightness-0"/>
+<span class="text-[10px] mt-1 text-white/60">CATALOG</span>
+</div>
+
+<div class="flex flex-col items-center cursor-pointer" onclick="window.location.href='/rentals'">
+<img src="https://www.svgrepo.com/show/507547/briefcase-alt.svg" class="w-5 h-5 invert brightness-0"/>
+<span class="text-[10px] mt-1 text-white font-bold">RENTALS</span>
+</div>
+
+<div class="flex flex-col items-center cursor-pointer" onclick="window.location.href='/support'">
+<img src="https://www.svgrepo.com/show/471510/help-circle.svg" class="w-5 h-5 invert brightness-0"/>
+<span class="text-[10px] mt-1 text-white/60">SUPPORT</span>
+</div>
+
+</div>
+</div>
+
+<script>
+document.getElementById("rentalForm").addEventListener("submit", function(e){
+e.preventDefault();
+const statusBox=document.getElementById("status");
+statusBox.innerHTML='<div class="mt-4 text-yellow-400 text-sm">Sending request...</div>';
+setTimeout(()=>{
+statusBox.innerHTML='<div class="mt-4 text-green-400 text-sm">Request submitted successfully ✔ We will contact you soon.</div>';
+this.reset();
+},1500);
+});
+</script>
+
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = 'b1a598f047e3452dd7e90c9c56e6dad10cd01120';
+window.smartsupp||(function(d) {
+var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+c.type='text/javascript';c.charset='utf-8';c.async=true;
+c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+
+</body>
+</html>
