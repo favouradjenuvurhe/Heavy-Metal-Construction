@@ -15,10 +15,36 @@ html,body{margin:0;padding:0;background:#0b0b0b;font-family:Inter,system-ui,sans
 
 <script>
 const cards = [
-  { name:"CX-250 Excavator", type:"HEAVY DUTY", price:"$450,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
-  { name:"ZX-150 Mini Excavator", type:"COMPACT", price:"$320,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" },
-  { name:"MX-400 Bulldozer", type:"HEAVY DUTY", price:"$780,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MmUae3yK3USQCzLLnDkot6NKbc8cEtZisoVm7FZaxLiSsMxa2beRPKw&s=10" },
-  { name:"RX-300 Loader", type:"PREMIUM", price:"$620,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJuZ5VDxT4CsMw-lyPiHikoBcSK32M9jXC0Bdi8njsRQ&s=10" }
+  { name:"CAT 994K Wheel Loader", type:"MINING", price:"$2,450,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
+  { name:"Komatsu PC8000 Excavator", type:"ULTRA HEAVY", price:"$8,900,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" },
+  { name:"Liebherr PR776 Dozer", type:"PREMIUM", price:"$3,600,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MmUae3yK3USQCzLLnDkot6NKbc8cEtZisoVm7FZaxLiSsMxa2beRPKw&s=10" },
+  { name:"Volvo L350H Loader", type:"HEAVY DUTY", price:"$1,850,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJuZ5VDxT4CsMw-lyPiHikoBcSK32M9jXC0Bdi8njsRQ&s=10" },
+  { name:"Hitachi EX5600 Excavator", type:"MINING", price:"$7,800,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
+  { name:"John Deere 1050K Dozer", type:"HEAVY DUTY", price:"$1,480,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" },
+  { name:"CASE 1121G Loader", type:"INDUSTRIAL", price:"$980,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MmUae3yK3USQCzLLnDkot6NKbc8cEtZisoVm7FZaxLiSsMxa2beRPKw&s=10" },
+  { name:"JCB JS370 Excavator", type:"PREMIUM", price:"$1,250,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJuZ5VDxT4CsMw-lyPiHikoBcSK32M9jXC0Bdi8njsRQ&s=10" },
+  { name:"Terex TA400 Dumper", type:"OFF ROAD", price:"$1,720,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
+  { name:"Bell B50E Hauler", type:"MINING", price:"$2,100,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" },
+  { name:"Dynapac SD2550 Paver", type:"ROADWORK", price:"$890,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MmUae3yK3USQCzLLnDkot6NKbc8cEtZisoVm7FZaxLiSsMxa2beRPKw&s=10" },
+  { name:"Bomag BW213 Roller", type:"COMPACTOR", price:"$780,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJuZ5VDxT4CsMw-lyPiHikoBcSK32M9jXC0Bdi8njsRQ&s=10" },
+  { name:"Manitou MRT3570", type:"TELEHANDLER", price:"$950,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
+  { name:"Grove GMK6300L Crane", type:"ALL TERRAIN", price:"$5,900,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" },
+  { name:"Liebherr LTM1750 Crane", type:"MEGA LIFT", price:"$12,500,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MmUae3yK3USQCzLLnDkot6NKbc8cEtZisoVm7FZaxLiSsMxa2beRPKw&s=10" },
+  { name:"CAT 797F Dump Truck", type:"MINING", price:"$6,800,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJuZ5VDxT4CsMw-lyPiHikoBcSK32M9jXC0Bdi8njsRQ&s=10" },
+  { name:"Komatsu HD785 Hauler", type:"HEAVY DUTY", price:"$3,400,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
+  { name:"Sandvik DR412i Drill", type:"MINING", price:"$4,900,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" },
+  { name:"Epiroc SmartROC T45", type:"DRILLING", price:"$2,700,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MmUae3yK3USQCzLLnDkot6NKbc8cEtZisoVm7FZaxLiSsMxa2beRPKw&s=10" },
+  { name:"Vermeer D100x140 Rig", type:"BORING", price:"$2,950,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJuZ5VDxT4CsMw-lyPiHikoBcSK32M9jXC0Bdi8njsRQ&s=10" },
+  { name:"Sany SCC4000A Crane", type:"CRAWLER", price:"$4,800,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
+  { name:"XCMG XE7000 Excavator", type:"MINING", price:"$9,200,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" },
+  { name:"Hyundai HL980 Loader", type:"PREMIUM", price:"$1,150,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MmUae3yK3USQCzLLnDkot6NKbc8cEtZisoVm7FZaxLiSsMxa2beRPKw&s=10" },
+  { name:"Doosan DX800LC Excavator", type:"HEAVY DUTY", price:"$2,250,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJuZ5VDxT4CsMw-lyPiHikoBcSK32M9jXC0Bdi8njsRQ&s=10" },
+  { name:"Atlas Copco Compressor", type:"INDUSTRIAL", price:"$690,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
+  { name:"Wirtgen W250i Cold Miller", type:"ROADWORK", price:"$2,300,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" },
+  { name:"Hamm HD138 Roller", type:"COMPACTOR", price:"$850,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9MmUae3yK3USQCzLLnDkot6NKbc8cEtZisoVm7FZaxLiSsMxa2beRPKw&s=10" },
+  { name:"Zoomlion ZCC9800 Crane", type:"MEGA LIFT", price:"$8,600,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJuZ5VDxT4CsMw-lyPiHikoBcSK32M9jXC0Bdi8njsRQ&s=10" },
+  { name:"CAT D11 Dozer", type:"ULTRA HEAVY", price:"$4,300,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8tlxHw8eYVXOpfEoR8v2JW0HGHldXUeP99SAZMCLKipfUeFm26xJt1bg&s=10" },
+  { name:"Komatsu WA1200 Loader", type:"MINING", price:"$5,400,000", img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpXbtQgBXT5N7SqiFqVT-05OzSPXaJk1ZblcqfvJNZ4tY9IPqJdby61ro_&s=10" }
 ];
 
 const types=["ALL","COMPACT","HEAVY DUTY","PREMIUM"];
